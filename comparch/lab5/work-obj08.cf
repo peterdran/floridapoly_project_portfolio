@@ -1,0 +1,6 @@
+v 4
+file . "lab5a.vhd" "875accc3697c7d355e266c3bf51308dd4f8479ed" "20180710012018.585":
+  entity fulladder at 11( 425) + 0 on 31;
+  architecture behavioral of fulladder at 18( 573) + 0 on 32;
+  entity t_fulladder at 34( 1153) + 0 on 33;
+  architecture behavioral of t_fulladder at 40( 1244) + 0 on 34;

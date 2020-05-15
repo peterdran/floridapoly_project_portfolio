@@ -1,0 +1,6 @@
+v 4
+file . "lab5b.vhd" "f0d736a69d4bc77c00787a0c717336dbc332b2c6" "20180710044121.653":
+  entity enableable_4bit_register at 12( 421) + 0 on 199;
+  architecture structural of enableable_4bit_register at 19( 629) + 0 on 200;
+  entity t_enableable_4bit_register at 41( 1276) + 0 on 201;
+  architecture structural of t_enableable_4bit_register at 47( 1397) + 0 on 202;
