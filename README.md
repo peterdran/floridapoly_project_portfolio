@@ -5,7 +5,7 @@
 * Discrete BJT NAND gate (binaries and report only until I find the source code)
 * Solar-compatible DC-DC converter (WIP
 * Backlink to AWS-hosted website for cloud computing course
-* Miscellaneous submissions lacking notability. 
+* Miscellaneous submissions lacking notability, sorted by Florida SUS course number. 
 
 ## Organizations that I participate(d) in:
 * IEEE RF Committee
