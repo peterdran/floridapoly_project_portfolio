@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NoteTaking</string>
+    <string name="first_name">Peter</string>
+    <string name="last_name">Dranishnikov</string>
+    <string name="fpu_id">U0000005258</string>
+    <string name="note_button_text">Create Note</string>
+
+    <string name="salutation">Hello</string>
+    <string name="note_create_intro">, please enter your note</string>
+    <string name="note_create_hint">Enter your note here</string>
+    <string name="save_button">Save</string>
+    <string name="cancel_button">Cancel</string>
+
+
+</resources>

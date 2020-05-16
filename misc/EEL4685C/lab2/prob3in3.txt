@@ -1,0 +1,4 @@
+Dim: 400
+Red Radius 100
+Green Radius 200
+Blue Radius 400

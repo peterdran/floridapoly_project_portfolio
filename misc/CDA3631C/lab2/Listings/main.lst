@@ -1,0 +1,74 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             MyCode, CODE, READONLY
+    2 00000000                 EXPORT           main
+    3 00000000         
+    4 00000000         
+    5 00000000         ;R1, R2: Inputs, addresses to beginning of array in memo
+                       ry with 32-bit values
+    6 00000000         ;R3: Input, length of arrays
+    7 00000000         ;NOTE: an assumption is made that the arrays are the sam
+                       e length
+    8 00000000         ;R4: Output, address to beginning of array in memory wit
+                       h 32-bit values on output
+    9 00000000         main
+   10 00000000                 ENTRY
+   11 00000000 B16B            CBZ              R3, exit
+   12 00000002 680D            LDR              R5, [R1]
+   13 00000004 6816            LDR              R6, [R2]
+   14 00000006 EB06 0705       ADD              R7, R6, R5
+   15 0000000A 6027            STR              R7, [R4]
+   16 0000000C F101 0104       ADD              R1, R1, #0x0004
+   17 00000010 F102 0204       ADD              R2, R2, #0x0004
+   18 00000014 F104 0404       ADD              R4, R4, #0x0004
+   19 00000018 F1A3 0301       SUB              R3, R3, #0x0001
+   20 0000001C E7FE            B                main
+   21 0000001E         
+   22 0000001E         exit
+   23 0000001E 4770            BX               LR
+   24 00000020                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\main.d -o.\objects\main.o -I.\RTE\Device\STM32F207IGHx -
+I.\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include -IC:\
+Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F2xx\Inc
+lude -IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\STM32F2xx_HAL_Drive
+r\Inc --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="
+__UVISION_VERSION SETA 526" --predefine="_RTE_ SETA 1" --predefine="STM32F207xx
+ SETA 1" --list=.\listings\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MyCode 00000000
+
+Symbol: MyCode
+   Definitions
+      At line 1 in file main.s
+   Uses
+      None
+Comment: MyCode unused
+exit 0000001E
+
+Symbol: exit
+   Definitions
+      At line 22 in file main.s
+   Uses
+      At line 11 in file main.s
+Comment: exit used once
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 9 in file main.s
+   Uses
+      At line 2 in file main.s
+      At line 20 in file main.s
+
+3 symbols
+338 symbols in table

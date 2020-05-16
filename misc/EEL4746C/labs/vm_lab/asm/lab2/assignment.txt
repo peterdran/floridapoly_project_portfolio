@@ -1,0 +1,6 @@
+Write an AVR asm prog. that will find average of 8 unsigned chars. Values are entered in the same way as the programs provided in class. 
+Hint: (use division by subtraction)
+Additional notes: don't care on rounding (integer division); sum in numerator is greater than 8 bits/1 byte
+Divbysub ex:
+13 / 93
+repeat subtraction by numerator until unable to subtract

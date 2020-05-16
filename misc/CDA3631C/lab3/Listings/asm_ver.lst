@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             asm, CODE
+    2 00000000                 EXPORT           findLowBitASM
+    3 00000000                 EXPORT           mySystemInit
+    4 00000000         
+    5 00000000         mySystemInit
+    6 00000000 4770            BX               LR
+    7 00000002         
+    8 00000002         findLowBitASM
+    9 00000002         ;Finds the lowest bit set in the contiguous values of th
+                       e array
+   10 00000002         ;result is returned in R0 (apparently), C does some weir
+                       d things with the stack values
+   11 00000002         ;do NOT touch R4, as that will mess with the C program's
+                        argument value, causing undefined behaviour
+   12 00000002 F04F 0500       MOV              R5, #0x00   ;initialize positio
+                                                            n count at zero
+   13 00000006 F04F 0700       MOV              R7, #0x00   ;removing will resu
+                                                            lt in a HardFault, 
+                                                            don't know why
+   14 0000000A 4680            MOV              R8, R0
+   15 0000000C         
+   16 0000000C         postinit
+   17 0000000C F8D8 3000       LDR              R3, [R8]
+   18 00000010 B12B            CBZ              R3, none_found
+   19 00000012         
+   20 00000012         shift_loop
+   21 00000012 085B            LSRS             R3, R3, #0x01
+   22 00000014 BF38 1C6D       ADDCC            R5, R5, #0x01
+   23 00000018 D3FB            BCC              shift_loop
+   24 0000001A         exit
+   25 0000001A 4628            MOV              R0, R5
+   26 0000001C 4770            BX               LR
+   27 0000001E         
+   28 0000001E         none_found
+   29 0000001E F105 0520       ADD              R5, R5, #0x20 
+                                                            ;may be off by one
+   30 00000022 EBA8 0700       SUB              R7, R8, R0
+   31 00000026 2F1C            CMP              R7, #0x1C   ;R0 >= 0x1C offset
+   32 00000028 D0F7            BEQ              exit
+   33 0000002A         ;else
+   34 0000002A F108 0804       ADD              R8, R8, #0x04
+   35 0000002E E7ED            B                postinit
+   36 00000030         
+   37 00000030                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\asm_ver.d -o.\objects\asm_ver.o -I.\RTE\Device\STM32F207
+IGHx -I.\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include
+ -IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F2
+xx\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\STM32F2xx_HAL
+_Driver\Inc --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 526
+" --predefine="_RTE_ SETA 1" --predefine="STM32F207xx SETA 1" --list=.\listings
+\asm_ver.lst asm_ver.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+asm 00000000
+
+Symbol: asm
+   Definitions
+      At line 1 in file asm_ver.s
+   Uses
+      None
+Comment: asm unused
+exit 0000001A
+
+Symbol: exit
+   Definitions
+      At line 24 in file asm_ver.s
+   Uses
+      At line 32 in file asm_ver.s
+Comment: exit used once
+findLowBitASM 00000002
+
+Symbol: findLowBitASM
+   Definitions
+      At line 8 in file asm_ver.s
+   Uses
+      At line 2 in file asm_ver.s
+Comment: findLowBitASM used once
+mySystemInit 00000000
+
+Symbol: mySystemInit
+   Definitions
+      At line 5 in file asm_ver.s
+   Uses
+      At line 3 in file asm_ver.s
+Comment: mySystemInit used once
+none_found 0000001E
+
+Symbol: none_found
+   Definitions
+      At line 28 in file asm_ver.s
+   Uses
+      At line 18 in file asm_ver.s
+Comment: none_found used once
+postinit 0000000C
+
+Symbol: postinit
+   Definitions
+      At line 16 in file asm_ver.s
+   Uses
+      At line 35 in file asm_ver.s
+Comment: postinit used once
+shift_loop 00000012
+
+Symbol: shift_loop
+   Definitions
+      At line 20 in file asm_ver.s
+   Uses
+      At line 23 in file asm_ver.s
+Comment: shift_loop used once
+7 symbols
+341 symbols in table

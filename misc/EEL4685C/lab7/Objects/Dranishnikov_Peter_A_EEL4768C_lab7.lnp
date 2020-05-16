@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+".\objects\i2c_stm32f2xx.o"
+".\objects\joy.o"
+".\objects\lab7.o"
+".\objects\serial.o"
+".\objects\glcd_fonts.o"
+".\objects\glcd_mcbstm32f200.o"
+".\objects\stm32f2xx_hal.o"
+".\objects\stm32f2xx_hal_cortex.o"
+".\objects\stm32f2xx_hal_dma.o"
+".\objects\stm32f2xx_hal_dma_ex.o"
+".\objects\stm32f2xx_hal_gpio.o"
+".\objects\stm32f2xx_hal_rcc.o"
+".\objects\stm32f2xx_hal_rcc_ex.o"
+".\objects\stm32f2xx_hal_sram.o"
+".\objects\stm32f2xx_ll_fsmc.o"
+".\objects\startup_stm32f207xx.o"
+".\objects\system_stm32f2xx.o"
+--library_type=microlib --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Dranishnikov_Peter_A_EEL4768C_lab7.map" -o .\Objects\Dranishnikov_Peter_A_EEL4768C_lab7.axf

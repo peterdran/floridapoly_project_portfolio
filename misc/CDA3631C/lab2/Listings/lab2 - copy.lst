@@ -1,0 +1,158 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; AREA MyData, DATA
+    2 00000000         ; 
+    3 00000000         ;array1
+    4 00000000         ; DCD 0x87654321, 0x23456789, 0x3456789A
+    5 00000000         ;array2
+    6 00000000         ; DCD 0xAABBCCDD, 0x7FCCDDEE, 0xCCDDEEFF
+    7 00000000         ; 
+    8 00000000         ; AREA MyAnswers, DATA
+    9 00000000         ;array3
+   10 00000000         ; SPACE 12
+   11 00000000         
+   12 00000000                 AREA             MyCode, CODE, READONLY
+   13 00000000                 EXPORT           __main
+   14 00000000                 EXPORT           mySystemInit
+   15 00000000                 IMPORT           main
+   16 00000000         
+   17 00000000         mySystemInit
+   18 00000000 4770            BX               LR
+   19 00000002         
+   20 00000002         __main
+   21 00000002                 ENTRY
+   22 00000002 F240 0100       MOVW.W           R1, #0x0000
+   23 00000006 F2C2 0100       MOVT.W           R1, #0x2000 ;array1 base addr
+   24 0000000A F101 020C       ADD              R2, R1, #0x000C 
+                                                            ;array2 base addr
+   25 0000000E F102 040C       ADD              R4, R2, #0x000C 
+                                                            ;ansarray base addr
+                                                            
+   26 00000012         
+   27 00000012         ;array1 initial values
+   28 00000012 F244 3521       MOVW.W           R5, #0x4321
+   29 00000016 F2C8 7565       MOVT.W           R5, #0x8765
+   30 0000001A 600D            STR              R5, [R1]
+   31 0000001C         
+   32 0000001C F246 7589       MOVW.W           R5, #0x6789
+   33 00000020 F2C2 3545       MOVT.W           R5, #0x2345
+   34 00000024 604D            STR              R5, [R1, #0x0004]
+   35 00000026         
+   36 00000026 F647 059A       MOVW.W           R5, #0x789A
+   37 0000002A F2C3 4556       MOVT.W           R5, #0x3456
+   38 0000002E 608D            STR              R5, [R1, #0x0008]
+   39 00000030         
+   40 00000030         ;array2 initial values
+   41 00000030 F64C 45DD       MOVW.W           R5, #0xCCDD
+   42 00000034 F6CA 25BB       MOVT.W           R5, #0xAABB
+   43 00000038 6015            STR              R5, [R2]
+   44 0000003A         
+   45 0000003A F64D 55EE       MOVW.W           R5, #0xDDEE
+   46 0000003E F6C7 75CC       MOVT.W           R5, #0x7FCC
+   47 00000042 6055            STR              R5, [R2, #0x0004]
+   48 00000044         
+   49 00000044 F64E 65FF       MOVW.W           R5, #0xEEFF
+   50 00000048 F6CC 45DD       MOVT.W           R5, #0xCCDD
+   51 0000004C 6095            STR              R5, [R2, #0x0008]
+   52 0000004E         
+   53 0000004E         ;subroutine call to 'main' (see docstring for params)
+   54 0000004E F240 0303       MOVW.W           R3, #0x0003
+   55 00000052 4801            LDR              R0, =main
+   56 00000054 4780            BLX              R0
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   57 00000056         ;__main
+   58 00000056         ; ENTRY
+   59 00000056         ; LDR R0, =array1
+   60 00000056         ; LDR R1, =array2
+   61 00000056         ; LDR R2, =array3
+   62 00000056         ; 
+   63 00000056         ; LDR R3, [R0], #4
+   64 00000056         ; LDR R4, [R1], #4
+   65 00000056         ; ADDS R4, R3, R4
+   66 00000056         ; STR R4, [R2], #4
+   67 00000056         ; 
+   68 00000056         ; LDR R3, [R0], #4
+   69 00000056         ; LDR R4, [R1], #4
+   70 00000056         ; ADDS R4, R3, R4
+   71 00000056         ; STR R4, [R2], #4 
+   72 00000056         ; 
+   73 00000056         ; LDR R3, [R0]
+   74 00000056         ; LDR R4, [R1]
+   75 00000056         ; ADDS R4, R3, R4
+   76 00000056         ; STR R4, [R2] 
+   77 00000056         ;;comment 
+   78 00000056         ; LDR R0, =0x22000000
+   79 00000056         ; LDR R1, =32
+   80 00000056         ;loop
+   81 00000056         ;; LDR R2, [R0], #4
+   82 00000056         ;; SUBS R1, #1
+   83 00000056         ;; BNE loop
+   84 00000056         ;;endcomment
+   85 00000056         ; 
+   86 00000056 E7FE            B                .
+   87 00000058                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=".\objects\lab2 - copy.d" -o".\objects\lab2 - copy.o" -I.\RTE\Devi
+ce\STM32F207IGHx -I.\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\
+Core\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\CMSIS\Devic
+e\ST\STM32F2xx\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\S
+TM32F2xx_HAL_Driver\Inc --predefine="__EVAL SETA 1" --predefine="__MICROLIB SET
+A 1" --predefine="__UVISION_VERSION SETA 526" --predefine="_RTE_ SETA 1" --pred
+efine="STM32F207xx SETA 1" --list=.\listings\lab2 - copy.lst "lab2 - Copy.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MyCode 00000000
+
+Symbol: MyCode
+   Definitions
+      At line 12 in file lab2
+   Uses
+      None
+Comment: MyCode unused
+__main 00000002
+
+Symbol: __main
+   Definitions
+      At line 20 in file lab2
+   Uses
+      At line 13 in file lab2
+Comment: __main used once
+mySystemInit 00000000
+
+Symbol: mySystemInit
+   Definitions
+      At line 17 in file lab2
+   Uses
+      At line 14 in file lab2
+Comment: mySystemInit used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 15 in file lab2
+   Uses
+      At line 55 in file lab2
+Comment: main used once
+1 symbol
+341 symbols in table

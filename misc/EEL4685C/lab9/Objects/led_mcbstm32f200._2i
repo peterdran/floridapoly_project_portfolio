@@ -1,0 +1,14 @@
+--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections
+-I.\RTE\CMSIS
+-I.\RTE\Device\STM32F207IGHx
+-I.\RTE\_Target_1
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Driver\Include
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\RTOS2\Include
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\RTOS2\RTX\Include
+-IC:\Keil_v5\ARM\PACK\Keil\MDK-Middleware\7.4.0\Board
+-IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+-IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.7.0\Drivers\STM32F2xx_HAL_Driver\Inc
+-IC:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.7.0\MDK\Boards\Keil\MCBSTM32F200\Common
+-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F207xx
+-o .\objects\led_mcbstm32f200.o --omf_browse .\objects\led_mcbstm32f200.crf --depend .\objects\led_mcbstm32f200.d --feedback ".\Objects\RTOS_clock.fed" "C:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.7.0\MDK\Boards\Keil\MCBSTM32F200\Common\LED_MCBSTM32F200.c"
