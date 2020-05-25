@@ -1,0 +1,69 @@
+Name         Description                                                                           Value                 Units Use default 
+-------------------------------------------------------------------------------------------------------------------------------------------
+Level        Device model level                                                                    Gummel-Poon (Level 1)                   
+IS           Transport saturation current                                                          14.34f                A                 
+BF           Ideal maximum forward beta                                                            255.9                                   
+NF           Forward current emission coefficient                                                  1.0                                     
+VAF          Forward Early voltage                                                                 74.03                 V                 
+IKF          Corner for forward beta high current roll-off                                         .2847                 A                 
+ISE          B-E leakage saturation current                                                        14.34f                A                 
+NE           B-E leakage emission coefficient                                                      1.307                                   
+BR           Ideal maximum reverse beta                                                            6.092                                   
+NR           Reverse current emission coefficient                                                  1                                       
+VAR          Reverse Early voltage                                                                 1e30                  V                 
+IKR          Corner for reverse beta high current roll-off                                         0                     A                 
+ISC          B-C leakage saturation current                                                        0                     A                 
+NC           B-C leakage emission coefficient                                                      2                                       
+RB           Zero-bias base resistance                                                             10                    Ohm               
+IRB          Current where base resistance falls halfway to its minimum value                      1e30                  A                 
+RBM          Minimum base resistance at high currents                                              0                     Ohm               
+RE           Emitter resistance                                                                    0                     Ohm               
+RC           Collector resistance                                                                  1                     Ohm               
+CJE          B-E zero-bias depletion capacitance                                                   22.01p                F                 
+VJE          B-E built in potential                                                                .75                   V                 
+MJE          B-E junction exponential factor                                                       .377                                    
+TF           Ideal forward transit time                                                            411.1p                sec               
+XTF          Coefficient for bias dependence of TF                                                 3                                       
+VTF          Voltage describing VBC dependence of TF                                               1.7                   V                 
+ITF          High-current parameter for effect on TF                                               .6                    A                 
+PTF          Excess phase at freq=1.0/(TF*2PI) Hz                                                  0                     Deg               
+CJC          B-C zero-bias depletion capacitance                                                   7.306p                F                 
+VJC          B-C built in potential                                                                .75                   V                 
+MJC          B-C junction exponential factor                                                       .3416                                   
+XCJC         Fraction of B-C depletion capacitance connected to internal base node                 1                                       
+TR           Ideal reverse transit time                                                            46.91n                sec               
+CJS          Zero-bias substrate capacitance                                                       0                     F                 
+VJS          Substrate junction built-in potential                                                 0.75                  V                 
+MJS          Substrate junction exponential factor                                                 0                                       
+XTB          Forward and reverse beta temperature exponent                                         1.5                                     
+EG           Energy gap for temperature effect on IS                                               1.11                  eV                
+XTI          Temperature exponent for effect on IS                                                 3                                       
+FC           Coefficient for forward-bias depletion capacitance formula                            .5                                      
+TNOM         Parameter measurement temperature                                                     27                    DegC                
+KF           Flicker noise coefficient                                                             0                                       
+AF           Flicker noise exponent                                                                1                                       
+NK           High-current roll-off coefficient                                                     0.5                                     
+ISS          Substrate saturation current                                                          0                     A                 
+NS           Substrate emission coefficient                                                        1                                       
+XCJC2        Fraction of CJC connected internally to Rb                                            1                                       
+XCJS         Fraction of CJS connected internally to Rc                                            1                                       
+TRB1         RB linear temperature coefficient                                                     0                     1/DegC              
+TRB2         RB quadratic temperature coefficient                                                  0                     1/DegC_uc100b2             
+TRC1         RC linear temperature coefficient                                                     0                     1/DegC              
+TRC2         RC quadratic temperature coefficient                                                  0                     1/DegC_uc100b2             
+TRE1         RE linear temperature coefficient                                                     0                     1/DegC              
+TRE2         RE quadratic temperature coefficient                                                  0                     1/DegC_uc100b2             
+TRM1         RBM linear temperature coefficient                                                    0                     1/DegC              
+TRM2         RBM quadratic temperature coefficient                                                 0                     1/DegC_uc100b2             
+CN           Quasi-saturation temperature coefficient for hole mobility                            2.2                                     
+D            Quasi-saturation temperature coefficient for scattering-limited hole carrier velocity 0.52                                    
+GAMMA        Epitaxial region doping factor                                                        1.0e-11                                 
+QCO          Epitaxial region charge factor                                                        0                                       
+QUASIMOD     Quasi-saturation model flag for temperature dependence                                0                                       
+RCO          Epitaxial region resistance                                                           0                     Ohm               
+VG           Quasi-saturation extrapolated bandgap voltage at 0 K                                  1.206                 V                 
+VO           Carrier mobility knee voltage                                                         10                    V                 
+T_MEASURED   Parameter measurement temperature                                                     27                    DegC                
+T_ABS        Model operating temperature                                                           27                    DegC                
+T_REL_GLOBAL Change relative to global temperature                                                 0                     DegC                
+-------------------------------------------------------------------------------------------------------------------------------------------
